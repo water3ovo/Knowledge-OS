@@ -1,0 +1,180 @@
+/* Mobile reading mode: keep the editorial tone, remove desktop compression. */
+
+@media (max-width: 720px) {
+  html, body { overflow-x: hidden; }
+
+  .topbar {
+    height: 56px;
+    padding: 0 16px;
+    grid-template-columns: minmax(0, 1fr) 40px 28px;
+    gap: 10px;
+  }
+
+  .brand { font-size: 12px; }
+  .topnav, .theme-button { display: none; }
+
+  .search-trigger {
+    width: 40px;
+    height: 34px;
+    padding: 0;
+    border-radius: 17px;
+  }
+  .search-trigger > span:not(.search-icon),
+  .search-trigger kbd { display: none; }
+  .search-icon { font-size: 18px; }
+
+  .workspace,
+  .workspace.drawer-open {
+    display: block;
+    min-height: calc(100vh - 56px);
+  }
+
+  .research-panel {
+    min-height: auto;
+    padding: 28px 20px 22px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .research-top h1 {
+    margin-top: 18px;
+    font-size: 38px;
+    line-height: 1.04;
+  }
+
+  .subhead { font-size: 13px; }
+  .research-copy {
+    max-width: none;
+    margin: 22px 0 18px;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .tag-list { gap: 6px; }
+  .tag {
+    min-height: 24px;
+    padding: 4px 8px;
+    font-size: 9px;
+  }
+
+  .current-question {
+    margin-top: 24px;
+    padding: 22px 0;
+  }
+  .current-question h2 {
+    margin: 16px 0 10px;
+    font-size: 22px;
+  }
+
+  .connecting { padding-top: 22px; }
+  .connection-row {
+    min-height: 38px;
+    font-size: 13px;
+  }
+  .research-footer { display: none; }
+
+  .landscape-panel {
+    padding: 26px 20px 34px;
+  }
+  .panel-heading { padding-bottom: 12px; }
+  .expand-link { display: none; }
+
+  .domain-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 26px 0 32px;
+  }
+  .domain-header { padding-bottom: 10px; }
+  .domain-header h3 { font-size: 12px; }
+  .concept-row {
+    min-height: 42px;
+    padding-right: 4px;
+    font-size: 13.5px;
+  }
+
+  .active-shelf { padding-top: 28px; }
+  .shelf-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 18px;
+  }
+  .shelf-item {
+    min-height: 78px;
+    padding-bottom: 16px;
+  }
+  .shelf-item h4 { font-size: 18px; }
+  .shelf-item p {
+    max-width: calc(100% - 24px);
+    font-size: 10.5px;
+    line-height: 1.55;
+  }
+
+  .recently-viewed { margin-top: 26px; }
+  .recent-list {
+    gap: 8px;
+    margin-top: 13px;
+  }
+  .recent-chip {
+    min-height: 32px;
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+
+  /* Knowledge detail becomes a focused mobile reader instead of a squeezed third column. */
+  .workspace.drawer-open .knowledge-drawer,
+  .knowledge-drawer {
+    position: fixed;
+    inset: 56px 0 0 0;
+    width: 100%;
+    min-height: 0;
+    max-height: none;
+    z-index: 70;
+    padding: 22px 20px 36px;
+    border-left: 0;
+    background: var(--drawer);
+    box-shadow: none;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .drawer-title-row { margin-top: 18px; }
+  .drawer-title-row h2 { font-size: 30px; }
+  .drawer-subtitle { font-size: 13px; }
+  .drawer-section { padding: 22px 0; }
+  .drawer-section > p:not(.section-kicker) {
+    font-size: 13.5px;
+    line-height: 1.85;
+  }
+  .how-list { gap: 10px; }
+  .how-list li {
+    grid-template-columns: 30px 1fr;
+    font-size: 12.5px;
+  }
+  .related-list button {
+    min-height: 40px;
+    font-size: 12.5px;
+  }
+
+  .search-overlay {
+    padding: 68px 12px 12px;
+    align-items: flex-start;
+    backdrop-filter: blur(2px);
+  }
+  .command-palette {
+    width: 100%;
+    max-height: calc(100vh - 84px);
+  }
+  .command-input-wrap {
+    height: 56px;
+    grid-template-columns: 24px 1fr 30px;
+    padding: 0 14px;
+  }
+  .command-input-wrap input { font-size: 14px; }
+  .command-results { max-height: calc(100vh - 150px); }
+  .command-result { min-height: 58px; }
+}
+
+@media (max-width: 390px) {
+  .research-top h1 { font-size: 34px; }
+  .landscape-panel, .research-panel { padding-left: 16px; padding-right: 16px; }
+  .knowledge-drawer { padding-left: 16px; padding-right: 16px; }
+}
