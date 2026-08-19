@@ -1,14 +1,14 @@
 import { notFound } from "next/navigation";
 import SectionHeader from "../../section-header";
-import { getKnowledge } from "@/lib/content";
+import { getAllKnowledge } from "@/lib/all-content";
 
 export function generateStaticParams() {
-  return getKnowledge().map((item) => ({ slug: item.slug }));
+  return getAllKnowledge().map((item) => ({ slug: item.slug }));
 }
 
 export default async function KnowledgeDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const item = getKnowledge().find((entry) => entry.slug === slug || entry.id === slug);
+  const item = getAllKnowledge().find((entry) => entry.slug === slug || entry.id === slug);
   if (!item) notFound();
 
   return (
