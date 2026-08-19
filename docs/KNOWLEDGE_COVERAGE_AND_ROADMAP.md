@@ -20,8 +20,9 @@ Knowledge OS is considered **stable for daily use** only when all of the followi
 - Phase 1 — Overview visual shell & Drawer: DONE
 - Phase 2 — MDX content system: DONE
 - Phase 2.1 — Mobile reading mode: DONE
-- Phase 3 — Multi-page retrieval experience: IN VALIDATION
-- Phase 4 — Knowledge breadth expansion: IN VALIDATION
+- Phase 3 — Multi-page retrieval experience: DONE (first usable version)
+- Phase 4 — Knowledge breadth baseline: DONE (137+ concept baseline; depth remains iterative)
+- Phase 4.1 — Real-use review & priority deepening: CURRENT
 - Phase 5 — Stable daily-use & continuous maintenance: NEXT TARGET
 
 ## 3. Layered content strategy
@@ -107,8 +108,8 @@ Paid tools should not be treated as required learning prerequisites. Unauthorize
 
 ## 8. Remaining work before Phase 5
 
-1. Validate and merge Phase 3/4 branch.
-2. Review multi-page UI on desktop and mobile.
-3. Deepen highest-value seed cards based on real learning/discussion rather than generating long articles in bulk.
-4. Add user-specific cases and playbooks as they are actually used.
-5. Establish the recurring maintenance rule: after a substantive learning conversation, update existing cards first; create a new card only when the concept is genuinely new.
+1. Review the merged multi-page experience on desktop and mobile in real use.
+2. Deepen highest-value seed cards based on real learning/discussion rather than generating long articles in bulk.
+3. Add user-specific cases and playbooks as they are actually used.
+4. Keep improving link integrity, sources and tool usefulness based on actual usage.
+5. Use the recurring maintenance rule: after a substantive learning conversation, update existing cards first; create a new card only when the concept is genuinely new.
