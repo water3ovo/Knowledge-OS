@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./mobile.css";
+import "./library.css";
+import NavBridge from "./nav-bridge";
 
 export const metadata: Metadata = {
   title: "Knowledge OS",
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="zh-CN">
-      <body>{children}</body>
+      <body><NavBridge />{children}</body>
     </html>
   );
 }
