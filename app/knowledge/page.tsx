@@ -1,10 +1,10 @@
 import SectionHeader from "../section-header";
 import KnowledgeBrowser from "./knowledge-browser";
-import { getDomainGroups, getKnowledge } from "@/lib/content";
+import { getAllDomainGroups, getAllKnowledge } from "@/lib/all-content";
 
 export default function KnowledgePage() {
-  const knowledge = getKnowledge();
-  const domains = getDomainGroups(knowledge);
+  const knowledge = getAllKnowledge();
+  const domains = getAllDomainGroups(knowledge);
 
   return (
     <main className="app-shell">
