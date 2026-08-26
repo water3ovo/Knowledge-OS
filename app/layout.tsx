@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./mobile.css";
 import "./library.css";
+import "./mono-theme.css";
 import NavBridge from "./nav-bridge";
 
 export const metadata: Metadata = {
