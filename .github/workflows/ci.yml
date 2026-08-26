@@ -21,5 +21,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Knowledge health
+        run: npm run knowledge:health
+
       - name: Build
         run: npm run build

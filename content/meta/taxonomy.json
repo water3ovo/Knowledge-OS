@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "status": "baseline",
+  "updated_at": "2026-08-26",
+  "principles": [
+    "taxonomy is content-driven, not UI-driven",
+    "top-level domains should remain stable unless repeated evidence shows the structure no longer fits",
+    "subdomains may evolve more frequently",
+    "cross-domain relationships should use links rather than forced duplication"
+  ],
+  "domains": [
+    {
+      "id": "strategy",
+      "title": "Strategy",
+      "title_zh": "战略与战略运营",
+      "subdomains": ["strategy-planning", "strategy-decode", "business-operations", "finance", "organization", "problem-solving"]
+    },
+    {
+      "id": "gtm",
+      "title": "Global GTM",
+      "title_zh": "全球市场进入与商业化",
+      "subdomains": ["market-intelligence", "customer", "positioning-messaging", "pricing", "localization", "channel", "launch"]
+    },
+    {
+      "id": "growth",
+      "title": "Growth",
+      "title_zh": "增长",
+      "subdomains": ["search", "paid-growth", "content-community", "plg", "retention-referral"]
+    },
+    {
+      "id": "ai",
+      "title": "AI Product",
+      "title_zh": "AI 产品",
+      "subdomains": ["llm-foundation", "agent", "retrieval", "tooling-protocols", "evaluation"]
+    },
+    {
+      "id": "data",
+      "title": "Data",
+      "title_zh": "数据与增长分析",
+      "subdomains": ["metrics", "funnel-cohort", "experimentation", "causal-inference", "analytics-tooling"]
+    },
+    {
+      "id": "platform",
+      "title": "Platform",
+      "title_zh": "平台增长与分发机制",
+      "subdomains": ["black-box-systems", "ranking-recommendation", "auction", "amazon", "search-platforms", "social-platforms"]
+    }
+  ],
+  "cross_domain_themes": [
+    "AI x GTM",
+    "AI x Growth",
+    "Platform x Causal Inference",
+    "Market Intelligence x Data",
+    "Automation x Knowledge Work"
+  ]
+}
