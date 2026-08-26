@@ -1,0 +1,213 @@
+/*
+ * Mono Research — default Knowledge OS theme
+ * Goal: high-focus black/white reading surface with restrained deep-red accents.
+ * Keep layout and interaction unchanged; this file only overrides visual tokens/colors.
+ */
+
+:root {
+  --paper: #f7f7f5;
+  --paper-2: #ffffff;
+  --paper-3: #f0f0ed;
+  --ink: #121212;
+  --muted: #666666;
+  --faint: #9a9a95;
+  --line: #e3e3de;
+  --line-soft: #edede9;
+  --accent: #8f3e2f;
+  --accent-soft: #f1e3df;
+  --selected: #efefec;
+  --drawer: #ffffff;
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.app-shell {
+  background: var(--paper);
+}
+
+.topbar {
+  background: rgba(247, 247, 245, .94);
+  border-bottom-color: var(--line);
+}
+
+.nav-link {
+  color: #565656;
+}
+
+.search-trigger {
+  background: rgba(255, 255, 255, .74);
+}
+
+.search-trigger:hover {
+  border-color: #c9c9c3;
+  background: #ffffff;
+}
+
+.theme-button {
+  color: #606060;
+}
+
+.avatar {
+  background: #171717;
+  color: #ffffff;
+}
+
+.subhead,
+.drawer-subtitle {
+  color: #818181;
+}
+
+.research-copy,
+.current-question > p:last-child,
+.connection-row,
+.drawer-section > p:not(.section-kicker),
+.related-list button {
+  color: #505050;
+}
+
+.tag,
+.recent-chip,
+.drawer-actions,
+.drawer-close,
+.drawer-topline {
+  color: #656565;
+}
+
+.tag,
+.case-link {
+  background: rgba(255, 255, 255, .52);
+}
+
+.connection-mark {
+  color: #8e8e8a;
+}
+
+.research-footer,
+.expand-link,
+.domain-count,
+.row-arrow,
+.shelf-item p,
+.shelf-arrow,
+.drawer-subtitle,
+.how-list li span,
+.case-link small,
+.case-link b,
+.command-result small,
+.command-result em,
+.empty-result {
+  color: var(--faint);
+}
+
+.shelf-type {
+  color: var(--accent);
+}
+
+.concept-row:hover {
+  background: rgba(18, 18, 18, .035);
+}
+
+.concept-row.selected {
+  background: var(--selected);
+}
+
+.recent-chip:hover {
+  border-color: #bdbdb8;
+}
+
+.knowledge-drawer {
+  background: rgba(255, 255, 255, .96);
+}
+
+.case-link:hover {
+  background: #fafafa;
+}
+
+.search-overlay {
+  background: rgba(18, 18, 18, .16);
+  backdrop-filter: blur(3px);
+}
+
+.command-palette {
+  background: #ffffff;
+  border-color: #d7d7d2;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .14);
+}
+
+.command-input-wrap > span {
+  color: #7b7b77;
+}
+
+.command-input-wrap input::placeholder {
+  color: #a3a39e;
+}
+
+@media (max-width: 1300px) {
+  .workspace.drawer-open .knowledge-drawer {
+    box-shadow: -18px 0 50px rgba(0, 0, 0, .07);
+  }
+}
+
+/* Multi-page library surfaces */
+.library-search,
+.filter-row button:hover,
+.filter-row button.active {
+  background: rgba(255, 255, 255, .7);
+}
+
+.knowledge-index-row:hover {
+  background: #f0f0ed;
+}
+
+.knowledge-index-row p,
+.detail-main section > p:not(.section-kicker),
+.detail-main ul,
+.detail-main ol,
+.detail-side ul,
+.related-chips a,
+.source-links a,
+.tool-card > p,
+.case-card > p,
+.mini-list span,
+.playbook-card ol {
+  color: #5d5d5a;
+}
+
+.tool-card,
+.case-card,
+.playbook-card,
+.map-domain-title {
+  border-color: var(--line);
+}
+
+.tool-card:hover,
+.case-card:hover {
+  background: rgba(255, 255, 255, .4);
+}
+
+.access-badge,
+.mini-list span,
+.related-chips a,
+.source-links a {
+  background: rgba(255, 255, 255, .55);
+}
+
+.tool-card-footer a,
+.playbook-number,
+.map-domain-title span,
+.domain-index,
+.brand-dot,
+.accent {
+  color: var(--accent);
+}
+
+/* Focus states: subtle but clearly visible on a mostly monochrome surface. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid rgba(143, 62, 47, .42);
+  outline-offset: 2px;
+}
