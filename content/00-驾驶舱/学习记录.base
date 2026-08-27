@@ -15,9 +15,9 @@ properties:
 views:
   - type: table
     name: 正在学习与最近学习
-    limit: 12
     order:
       - file.name
       - status
       - started_at
       - topics
+    limit: 12

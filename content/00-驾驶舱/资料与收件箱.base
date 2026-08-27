@@ -24,7 +24,6 @@ properties:
 views:
   - type: table
     name: 待消化与新资料
-    limit: 15
     order:
       - file.name
       - source_type
@@ -32,3 +31,4 @@ views:
       - captured_at
       - topics
       - reliability
+    limit: 15
