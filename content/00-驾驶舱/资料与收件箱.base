@@ -1,0 +1,34 @@
+filters:
+  or:
+    - and:
+        - file.inFolder("03-资料库/资料来源")
+        - file.ext == "md"
+        - file.name != "README"
+    - and:
+        - file.inFolder("03-资料库/收件箱")
+        - file.ext == "md"
+        - file.name != "README"
+properties:
+  file.name:
+    displayName: 资料
+  source_type:
+    displayName: 来源类型
+  status:
+    displayName: 状态
+  captured_at:
+    displayName: 收集时间
+  topics:
+    displayName: 主题
+  reliability:
+    displayName: 可信度
+views:
+  - type: table
+    name: 待消化与新资料
+    limit: 15
+    order:
+      - file.name
+      - source_type
+      - status
+      - captured_at
+      - topics
+      - reliability

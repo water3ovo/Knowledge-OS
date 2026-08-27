@@ -12,6 +12,12 @@
 .DS_Store
 *.pem
 
+# Obsidian: track durable configuration, ignore machine-local state
+/content/.obsidian/workspace*.json
+/content/.obsidian/cache/
+/content/.obsidian/.cache/
+/content/.obsidian/session*.json
+
 # debug
 npm-debug.log*
 yarn-debug.log*

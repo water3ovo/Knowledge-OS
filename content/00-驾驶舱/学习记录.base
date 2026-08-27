@@ -1,0 +1,23 @@
+filters:
+  and:
+    - file.inFolder("02-学习记录")
+    - file.ext == "md"
+    - file.name != "README"
+properties:
+  file.name:
+    displayName: 学习主题
+  status:
+    displayName: 状态
+  started_at:
+    displayName: 开始时间
+  topics:
+    displayName: 主题
+views:
+  - type: table
+    name: 正在学习与最近学习
+    limit: 12
+    order:
+      - file.name
+      - status
+      - started_at
+      - topics

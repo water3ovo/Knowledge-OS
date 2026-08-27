@@ -1,0 +1,21 @@
+filters:
+  and:
+    - file.inFolder("06-工具与数据")
+    - file.ext == "md"
+properties:
+  file.name:
+    displayName: 工具
+  type:
+    displayName: 类型
+  summary:
+    displayName: 用途
+  updated_at:
+    displayName: 最近更新
+views:
+  - type: table
+    name: 工具与数据源
+    order:
+      - file.name
+      - type
+      - summary
+      - updated_at

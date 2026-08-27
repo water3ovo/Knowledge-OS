@@ -50,14 +50,15 @@ export type DomainGroup = {
 };
 
 const CONTENT_ROOT = path.join(process.cwd(), "content");
+const KNOWLEDGE_DIR = "01-知识库";
 
 const DOMAIN_CONFIG = [
-  { index: "01", key: "strategy", title: "STRATEGY" },
-  { index: "02", key: "gtm", title: "GLOBAL GTM" },
-  { index: "03", key: "growth", title: "GROWTH" },
-  { index: "04", key: "ai", title: "AI PRODUCT" },
-  { index: "05", key: "data", title: "DATA" },
-  { index: "06", key: "platform", title: "PLATFORM" },
+  { index: "01", key: "strategy", title: "战略与经营" },
+  { index: "02", key: "gtm", title: "GTM" },
+  { index: "03", key: "growth", title: "增长" },
+  { index: "04", key: "ai", title: "AI 产品" },
+  { index: "05", key: "data", title: "数据分析" },
+  { index: "06", key: "platform", title: "平台机制" },
 ] as const;
 
 const PREFERRED_ORDER: Record<string, string[]> = {
@@ -70,12 +71,46 @@ const PREFERRED_ORDER: Record<string, string[]> = {
 };
 
 const DOMAIN_LABELS: Record<string, string> = {
-  strategy: "Strategy",
-  gtm: "Global GTM",
-  growth: "Growth",
-  ai: "AI Product",
-  data: "Data",
-  platform: "Platform",
+  strategy: "战略与经营",
+  gtm: "GTM",
+  growth: "增长",
+  ai: "AI 产品",
+  data: "数据分析",
+  platform: "平台机制",
+};
+
+const DOMAIN_FOLDERS: Record<string, string> = {
+  strategy: "战略与经营",
+  gtm: "GTM",
+  growth: "增长",
+  ai: "AI产品",
+  data: "数据分析",
+  platform: "平台机制",
+};
+
+const SECTION_ALIASES: Record<string, string> = {
+  WHAT: "WHAT",
+  "是什么": "WHAT",
+  "核心概念": "WHAT",
+  WHY: "WHY",
+  "为什么": "WHY",
+  WHEN: "WHEN",
+  "什么时候用": "WHEN",
+  HOW: "HOW",
+  "怎么做": "HOW",
+  DATA: "DATA",
+  "数据": "DATA",
+  "关键数据": "DATA",
+  INPUT: "INPUT",
+  "输入": "INPUT",
+  TOOL: "TOOL",
+  TOOLS: "TOOL",
+  "工具": "TOOL",
+  OUTPUT: "OUTPUT",
+  "输出": "OUTPUT",
+  PITFALLS: "PITFALLS",
+  "易错点": "PITFALLS",
+  "常见误区": "PITFALLS",
 };
 
 function walkFiles(directory: string): string[] {
@@ -107,7 +142,9 @@ function sectionMap(body: string): Record<string, string> {
   const parts = body.split(/^##\s+(.+?)\s*$/gm);
   const sections: Record<string, string> = {};
   for (let index = 1; index < parts.length; index += 2) {
-    const heading = parts[index]?.trim().toUpperCase();
+    const rawHeading = parts[index]?.trim() ?? "";
+    const normalized = rawHeading.toUpperCase();
+    const heading = SECTION_ALIASES[rawHeading] ?? SECTION_ALIASES[normalized] ?? normalized;
     const content = parts[index + 1]?.trim() ?? "";
     if (heading) sections[heading] = content;
   }
@@ -142,11 +179,13 @@ function normalizeDomain(rawDomain: unknown, filePath: string): { key: string; l
   if (DOMAIN_LABELS[raw]) return { key: raw, label: DOMAIN_LABELS[raw] };
 
   const normalizedPath = filePath.split(path.sep).join("/").toLowerCase();
-  for (const key of Object.keys(DOMAIN_LABELS)) {
-    if (normalizedPath.includes(`/knowledge/${key}/`)) return { key, label: DOMAIN_LABELS[key] };
+  for (const [key, folder] of Object.entries(DOMAIN_FOLDERS)) {
+    if (normalizedPath.includes(`/${KNOWLEDGE_DIR.toLowerCase()}/${folder.toLowerCase()}/`)) {
+      return { key, label: DOMAIN_LABELS[key] };
+    }
   }
 
-  return { key: raw || "other", label: raw ? String(rawDomain) : "Other" };
+  return { key: raw || "other", label: raw ? String(rawDomain) : "其他" };
 }
 
 function parseKnowledgeFile(filePath: string): KnowledgeItem {
@@ -222,7 +261,7 @@ function sortDomainItems(items: KnowledgeItem[], domainKey: string): KnowledgeIt
 }
 
 export function getKnowledge(): KnowledgeItem[] {
-  return walkFiles(path.join(CONTENT_ROOT, "knowledge"))
+  return walkFiles(path.join(CONTENT_ROOT, KNOWLEDGE_DIR))
     .map(parseKnowledgeFile)
     .sort((a, b) => a.title.localeCompare(b.title, "zh-CN"));
 }
@@ -239,9 +278,9 @@ export function getDomainGroups(knowledge: KnowledgeItem[]): DomainGroup[] {
 
 export function getLibraryItems(): LibraryItem[] {
   const groups: Array<{ dir: string; kind: LibraryItem["kind"] }> = [
-    { dir: "tools", kind: "tool" },
-    { dir: "playbooks", kind: "playbook" },
-    { dir: "cases", kind: "case" },
+    { dir: "06-工具与数据", kind: "tool" },
+    { dir: "04-实战手册", kind: "playbook" },
+    { dir: "05-案例", kind: "case" },
   ];
 
   return groups.flatMap(({ dir, kind }) =>

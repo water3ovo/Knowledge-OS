@@ -1,0 +1,36 @@
+filters:
+  or:
+    - and:
+        - file.inFolder("04-实战手册")
+        - file.ext == "md"
+    - and:
+        - file.inFolder("05-案例")
+        - file.ext == "md"
+properties:
+  file.name:
+    displayName: 条目
+  type:
+    displayName: 类型
+  summary:
+    displayName: 一句话
+  updated_at:
+    displayName: 最近更新
+views:
+  - type: table
+    name: 实战手册
+    filters:
+      and:
+        - file.inFolder("04-实战手册")
+    order:
+      - file.name
+      - type
+      - summary
+  - type: table
+    name: 案例
+    filters:
+      and:
+        - file.inFolder("05-案例")
+    order:
+      - file.name
+      - type
+      - summary
