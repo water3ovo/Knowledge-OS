@@ -14,12 +14,12 @@ cssclasses:
 
 | 区域 | 用途 |
 | --- | --- |
-| [[../knowledge|Knowledge]] | 稳定知识：WHAT / WHY / HOW / DATA / TOOLS |
-| [[../learning|Learning]] | 学习过程：问题、理解变化、个人判断、未解决问题 |
-| [[../sources|Sources]] | 网页、PDF、报告、文章、ChatGPT 来源 |
-| [[../playbooks|Playbooks]] | 遇到问题时怎么做 |
-| [[../cases|Cases]] | 真实案例与实验 |
-| [[../tools|Tools]] | 数据源与工具 |
+| [[Knowledge.base|Knowledge]] | 稳定知识：WHAT / WHY / HOW / DATA / TOOLS |
+| [[Learning.base|Learning]] | 学习过程：问题、理解变化、个人判断、未解决问题 |
+| [[Sources.base|Sources & Inbox]] | 网页、PDF、报告、文章、ChatGPT 来源 |
+| [[Playbooks-Cases.base#Playbooks|Playbooks]] | 遇到问题时怎么做 |
+| [[Playbooks-Cases.base#Cases|Cases]] | 真实案例与实验 |
+| [[Tools.base|Tools & Data]] | 数据源与工具 |
 | [[../canvas/00-Knowledge-Landscape.canvas|Knowledge Landscape]] | 白板式知识全景 |
 
 ---
