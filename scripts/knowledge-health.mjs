@@ -48,7 +48,7 @@ for (const file of walk(contentRoot)) {
       const raw = fs.readFileSync(file, "utf8");
       const parsed = matter(raw);
       if (parsed.data?.id) {
-        const kind = fileRel.includes("/knowledge/") ? "knowledge" : String(parsed.data.type ?? "markdown");
+        const kind = fileRel.includes("/01-知识库/") ? "knowledge" : String(parsed.data.type ?? "markdown");
         addRecord(file, parsed.data, kind);
       }
     } catch (error) {
@@ -97,7 +97,7 @@ for (const [id, matches] of byId) {
   const seeds = matches.filter((x) => x.kind === "knowledge-seed");
   const other = matches.filter((x) => x.kind !== "knowledge" && x.kind !== "knowledge-seed");
 
-  // Detailed MDX is intentionally allowed to override one or more seed entries with the same ID.
+  // Detailed Markdown intentionally overrides seed entries with the same ID.
   const validOverride = detailed.length === 1 && seeds.length >= 1 && other.length === 0;
   if (matches.length > 1 && !validOverride) {
     fatal.push(`duplicate id '${id}': ${matches.map((x) => x.file).join(", ")}`);
