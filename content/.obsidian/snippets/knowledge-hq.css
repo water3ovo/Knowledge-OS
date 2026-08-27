@@ -108,7 +108,6 @@ body.theme-dark {
   text-decoration-color: var(--pk-accent);
 }
 
-/* Keep YAML/properties in files, but make the reading canvas feel like an article. */
 .markdown-preview-view .metadata-container {
   display: none;
 }
@@ -148,7 +147,6 @@ body.theme-dark {
   color: var(--pk-muted);
 }
 
-/* Hero */
 .knowledge-hq .callout[data-callout="hero"] {
   position: relative;
   overflow: hidden;
@@ -185,7 +183,41 @@ body.theme-dark {
   font-size: 1rem;
 }
 
-/* 2-column action cards */
+/* Embedded current-learning panel */
+.knowledge-hq .internal-embed.markdown-embed {
+  margin: 1rem 0 0.2rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.knowledge-hq .internal-embed .markdown-preview-view {
+  padding: 0;
+  background: transparent;
+}
+
+.knowledge-hq .internal-embed .markdown-preview-sizer {
+  padding: 0 !important;
+  min-height: 0;
+}
+
+.knowledge-hq .internal-embed .embed-title,
+.knowledge-hq .internal-embed h1 {
+  display: none;
+}
+
+.knowledge-hq .internal-embed .callout[data-callout="focus"] {
+  margin: 0;
+  padding: 0.6rem 0.85rem;
+  border-left: 3px solid var(--pk-accent);
+  box-shadow: none;
+  background: linear-gradient(90deg, var(--pk-accent-soft), var(--pk-surface));
+}
+
+.knowledge-hq .internal-embed .callout[data-callout="focus"] .callout-icon {
+  display: none;
+}
+
 .knowledge-hq .callout[data-callout^="hub-"] {
   display: inline-block;
   vertical-align: top;
@@ -211,7 +243,6 @@ body.theme-dark {
   font-size: 1rem;
 }
 
-/* 3-column domain cards */
 .knowledge-hq .callout[data-callout^="domain-"] {
   display: inline-block;
   vertical-align: top;
@@ -244,7 +275,6 @@ body.theme-dark {
   line-height: 1.65;
 }
 
-/* Dataview / Base tables become secondary status panels, not the visual identity. */
 .knowledge-hq .dataview.table-view-table,
 .knowledge-hq .bases-view,
 .knowledge-hq table {
@@ -274,7 +304,6 @@ body.theme-dark {
   letter-spacing: 0.03em;
 }
 
-/* If Dataview is not installed yet, do not show raw implementation blocks on the reading dashboard. */
 .knowledge-hq pre:has(code.language-dataview) {
   display: none;
 }
@@ -323,13 +352,11 @@ body.theme-dark {
   background: var(--pk-soft);
 }
 
-/* Technical implementation folders stay in Git but disappear from everyday navigation. */
 .nav-folder[data-path="meta"],
 .nav-folder[data-path="seeds"] {
   display: none;
 }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .knowledge-hq .callout[data-callout^="domain-"] {
     width: calc(50% - 0.7rem);
