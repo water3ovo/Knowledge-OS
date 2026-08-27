@@ -11,7 +11,7 @@ Use this skill when ingesting a learning discussion, source, note, URL-derived s
 
 ## Objective
 
-Turn new material into the smallest justified set of durable knowledge changes while keeping the Obsidian experience human-readable.
+Turn new material into the smallest justified set of durable knowledge changes while keeping the Obsidian experience human-readable and self-growing.
 
 ## Procedure
 
@@ -20,17 +20,19 @@ Turn new material into the smallest justified set of durable knowledge changes w
 3. Classify candidate changes as NO_CHANGE / SOURCE / UPDATE / CREATE / LINK / MERGE / INSIGHT / QUESTION / SUPERSEDE / TAXONOMY_CHANGE.
 4. Preserve provenance under `content/03-资料库/资料来源/` when the source matters; unprocessed captures belong in `content/03-资料库/收件箱/`.
 5. Create or update one Learning Episode under `content/02-学习记录/` for the topic/session when useful.
-6. UPDATE existing canonical notes before CREATE.
-7. Keep personal hypotheses in `我的洞察` / Learning Episode; do not blend them into established facts.
-8. If new information conflicts with current knowledge, do not silently overwrite. Follow the contradiction protocol.
-9. Add or repair meaningful wikilinks/relations.
-10. If the durable mental model changed, update the relevant domain MOC; do not turn every small edit into MOC churn.
-11. Summarize the Knowledge Delta before committing.
+6. Mirror durable unresolved questions into the Learning Episode `open_questions` frontmatter so the cockpit can surface them automatically.
+7. UPDATE existing canonical notes before CREATE.
+8. Keep personal hypotheses in `我的理解 / 类比` or the Learning Episode; do not blend them into established facts.
+9. If new information conflicts with current knowledge, do not silently overwrite. Follow the contradiction protocol.
+10. Add or repair meaningful wikilinks/relations.
+11. If the durable mental model changed, update the relevant domain MOC; do not turn every small edit into MOC churn.
+12. If the user's current major learning focus changed, update `content/00-驾驶舱/01-当前学习.md`.
+13. Summarize the Knowledge Delta before committing.
 
 ## Writing style
 
 - Human-facing prose is Chinese-first; preserve real professional acronyms/terms where natural.
-- Prefer `是什么 / 为什么 / 什么时候用 / 怎么做 / 数据与输入 / 工具 / 输出 / 常见误区 / 我的洞察 / 待解决问题 / 关联 / 来源` over English database-like headings when editing canonical notes.
+- Prefer readable article-like headings such as `一句话理解 / 它是什么 / 为什么重要 / 什么时候会用到 / 怎么理解或怎么做 / 一个例子 / 关键数据或判断信号 / 常见误区 / 我的理解 / 还没解决的问题 / 相关知识 / 来源`.
 - Keep `id`, `slug`, machine fields and technical metadata stable.
 - Bases are indexes; canonical Markdown and MOCs are the primary reading layer.
 
