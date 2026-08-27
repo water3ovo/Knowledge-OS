@@ -1,0 +1,21 @@
+{
+  "nodes":[
+    {"id":"center","type":"text","text":"个人知识系统\n\nChatGPT 学习 / 策展\n↓\nMarkdown + GitHub\n↓\nObsidian 知识工作台","x":0,"y":0,"width":340,"height":180},
+    {"id":"strategy","type":"file","file":"01-知识库/战略与经营/00-战略与经营.md","x":-650,"y":-340,"width":300,"height":180},
+    {"id":"gtm","type":"file","file":"01-知识库/GTM/00-GTM.md","x":-650,"y":0,"width":300,"height":180},
+    {"id":"growth","type":"file","file":"01-知识库/增长/00-增长.md","x":-650,"y":340,"width":300,"height":180},
+    {"id":"ai","type":"file","file":"01-知识库/AI产品/00-AI产品.md","x":450,"y":-340,"width":300,"height":180},
+    {"id":"data","type":"file","file":"01-知识库/数据分析/00-数据分析.md","x":450,"y":0,"width":300,"height":180},
+    {"id":"platform","type":"file","file":"01-知识库/平台机制/00-平台机制.md","x":450,"y":340,"width":300,"height":180},
+    {"id":"learning","type":"file","file":"02-学习记录/2026-08-26-personal-ai-knowledge-system-architecture.md","x":0,"y":340,"width":340,"height":190}
+  ],
+  "edges":[
+    {"id":"e1","fromNode":"center","fromSide":"left","toNode":"strategy","toSide":"right"},
+    {"id":"e2","fromNode":"center","fromSide":"left","toNode":"gtm","toSide":"right"},
+    {"id":"e3","fromNode":"center","fromSide":"left","toNode":"growth","toSide":"right"},
+    {"id":"e4","fromNode":"center","fromSide":"right","toNode":"ai","toSide":"left"},
+    {"id":"e5","fromNode":"center","fromSide":"right","toNode":"data","toSide":"left"},
+    {"id":"e6","fromNode":"center","fromSide":"right","toNode":"platform","toSide":"left"},
+    {"id":"e7","fromNode":"center","fromSide":"bottom","toNode":"learning","toSide":"top"}
+  ]
+}
