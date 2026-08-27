@@ -1,0 +1,34 @@
+filters:
+  or:
+    - and:
+        - file.inFolder("sources")
+        - file.ext == "md"
+        - file.name != "README"
+    - and:
+        - file.inFolder("inbox")
+        - file.ext == "md"
+        - file.name != "README"
+properties:
+  file.name:
+    displayName: Source / Inbox
+  source_type:
+    displayName: Source Type
+  status:
+    displayName: Status
+  captured_at:
+    displayName: Captured
+  topics:
+    displayName: Topics
+  reliability:
+    displayName: Reliability
+views:
+  - type: table
+    name: "Inbox & New Sources"
+    limit: 15
+    order:
+      - file.name
+      - source_type
+      - status
+      - captured_at
+      - topics
+      - reliability
