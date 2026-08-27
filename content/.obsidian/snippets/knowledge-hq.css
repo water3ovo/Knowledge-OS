@@ -1,96 +1,187 @@
-/* Knowledge HQ — Mono Research */
+/* Personal Knowledge Workbench — Mono Research */
 
-.knowledge-hq {
+.knowledge-hq,
+.knowledge-map {
   --hq-bg: #f7f7f5;
   --hq-surface: #ffffff;
   --hq-ink: #121212;
   --hq-muted: #666666;
   --hq-line: #e3e3de;
+  --hq-soft: #efefeb;
   --hq-accent: #8f3e2f;
 }
 
 .knowledge-hq .markdown-preview-view,
-.knowledge-hq .markdown-source-view.mod-cm6 .cm-scroller {
+.knowledge-hq .markdown-source-view.mod-cm6 .cm-scroller,
+.knowledge-map .markdown-preview-view,
+.knowledge-map .markdown-source-view.mod-cm6 .cm-scroller {
   background: var(--hq-bg);
 }
 
 .knowledge-hq .markdown-preview-sizer,
-.knowledge-hq .cm-contentContainer {
-  max-width: 1180px !important;
+.knowledge-hq .cm-contentContainer,
+.knowledge-map .markdown-preview-sizer,
+.knowledge-map .cm-contentContainer {
+  max-width: 980px !important;
 }
 
 .knowledge-hq h1,
 .knowledge-hq h2,
-.knowledge-hq h3 {
+.knowledge-hq h3,
+.knowledge-map h1,
+.knowledge-map h2,
+.knowledge-map h3 {
   color: var(--hq-ink);
   letter-spacing: -0.02em;
 }
 
-.knowledge-hq h1 {
-  font-size: 2.4rem;
+.knowledge-hq h1,
+.knowledge-map h1 {
+  font-size: 2.35rem;
+  font-weight: 720;
   margin-top: 0.4rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--hq-line);
 }
 
-.knowledge-hq h2 {
-  margin-top: 2.2rem;
-  font-size: 1.05rem;
-  letter-spacing: 0.04em;
+.knowledge-hq h2,
+.knowledge-map h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.28rem;
+  font-weight: 680;
+  letter-spacing: -0.015em;
+}
+
+.knowledge-hq h3,
+.knowledge-map h3 {
+  margin-top: 1.55rem;
+  margin-bottom: 0.45rem;
+  font-size: 1.03rem;
+  font-weight: 650;
 }
 
 .knowledge-hq p,
 .knowledge-hq li,
-.knowledge-hq table {
+.knowledge-map p,
+.knowledge-map li {
+  color: var(--hq-muted);
+  line-height: 1.8;
+}
+
+.knowledge-hq strong,
+.knowledge-map strong {
+  color: var(--hq-ink);
+}
+
+.knowledge-hq a.internal-link,
+.knowledge-map a.internal-link {
+  color: var(--hq-ink);
+  font-weight: 560;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--hq-line);
+  text-underline-offset: 3px;
+}
+
+.knowledge-hq a.internal-link:hover,
+.knowledge-map a.internal-link:hover {
+  color: var(--hq-accent);
+  text-decoration-color: var(--hq-accent);
+}
+
+.knowledge-hq .callout,
+.knowledge-map .callout {
+  border: 1px solid var(--hq-line);
+  border-left: 3px solid var(--hq-accent);
+  border-radius: 8px;
+  background: var(--hq-surface);
+  box-shadow: none;
+  padding: 0.25rem 0.35rem;
+  margin: 0.9rem 0;
+}
+
+.knowledge-hq .callout-title,
+.knowledge-map .callout-title {
+  color: var(--hq-ink);
+  font-weight: 680;
+}
+
+.knowledge-hq .callout-content,
+.knowledge-map .callout-content {
   color: var(--hq-muted);
 }
 
-.knowledge-hq a.internal-link {
-  color: var(--hq-ink);
-  text-decoration-color: var(--hq-line);
+.knowledge-hq .callout[data-callout="home"],
+.knowledge-hq .callout[data-callout="learn"],
+.knowledge-hq .callout[data-callout="source"],
+.knowledge-hq .callout[data-callout="canvas"] {
+  border-left-width: 1px;
+  border-top: 2px solid var(--hq-accent);
 }
 
-.knowledge-hq a.internal-link:hover {
-  color: var(--hq-accent);
+.knowledge-hq hr,
+.knowledge-map hr {
+  border: 0;
+  border-top: 1px solid var(--hq-line);
+  margin: 2.2rem 0;
 }
 
-.knowledge-hq .callout {
+/* Bases remain useful as management/index views, but should not visually dominate reading pages. */
+.knowledge-hq .bases-view,
+.knowledge-map .bases-view {
   border: 1px solid var(--hq-line);
-  border-left: 3px solid var(--hq-accent);
-  border-radius: 2px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 0.8rem;
   background: var(--hq-surface);
-  box-shadow: none;
 }
 
-.knowledge-hq table {
+.knowledge-hq table,
+.knowledge-map table {
   width: 100%;
   border-collapse: collapse;
   background: transparent;
 }
 
 .knowledge-hq th,
-.knowledge-hq td {
+.knowledge-hq td,
+.knowledge-map th,
+.knowledge-map td {
   border-bottom: 1px solid var(--hq-line);
   padding: 0.65rem 0.75rem;
 }
 
-.knowledge-hq th {
+.knowledge-hq th,
+.knowledge-map th {
   color: var(--hq-ink);
   font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-weight: 650;
 }
 
-.knowledge-hq .bases-view {
-  border-top: 1px solid var(--hq-line);
-  margin-top: 0.7rem;
+/* Technical implementation folders stay in Git, but are hidden from the everyday File Explorer. */
+.nav-folder[data-path="meta"],
+.nav-folder[data-path="seeds"] {
+  display: none;
 }
 
-body.theme-dark .knowledge-hq {
+/* Give the visible vault tree a calmer, human-readable rhythm. */
+.nav-files-container .nav-folder-title,
+.nav-files-container .nav-file-title {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-files-container .nav-folder-title-content {
+  font-weight: 560;
+}
+
+body.theme-dark .knowledge-hq,
+body.theme-dark .knowledge-map {
   --hq-bg: #111214;
   --hq-surface: #17181b;
   --hq-ink: #f3f4f6;
   --hq-muted: #a1a6ae;
   --hq-line: #2a2d31;
+  --hq-soft: #1d1f22;
   --hq-accent: #c46a5a;
 }
