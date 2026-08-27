@@ -15,15 +15,15 @@ properties:
     displayName: Updated
 views:
   - type: table
-    name: "Recently Updated"
-    limit: 12
+    name: Recently Updated
     order:
       - file.name
       - domain
       - type
       - updated_at
+    limit: 12
   - type: table
-    name: "By Domain"
+    name: By Domain
     groupBy:
       property: domain
       direction: ASC
