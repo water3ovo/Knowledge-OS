@@ -1,0 +1,23 @@
+filters:
+  and:
+    - file.inFolder("learning")
+    - file.ext == "md"
+    - file.name != "README"
+properties:
+  file.name:
+    displayName: Learning Episode
+  status:
+    displayName: Status
+  started_at:
+    displayName: Started
+  topics:
+    displayName: Topics
+views:
+  - type: table
+    name: "Active & Recent"
+    limit: 12
+    order:
+      - file.name
+      - status
+      - started_at
+      - topics

@@ -1,0 +1,96 @@
+/* Knowledge HQ — Mono Research */
+
+.knowledge-hq {
+  --hq-bg: #f7f7f5;
+  --hq-surface: #ffffff;
+  --hq-ink: #121212;
+  --hq-muted: #666666;
+  --hq-line: #e3e3de;
+  --hq-accent: #8f3e2f;
+}
+
+.knowledge-hq .markdown-preview-view,
+.knowledge-hq .markdown-source-view.mod-cm6 .cm-scroller {
+  background: var(--hq-bg);
+}
+
+.knowledge-hq .markdown-preview-sizer,
+.knowledge-hq .cm-contentContainer {
+  max-width: 1180px !important;
+}
+
+.knowledge-hq h1,
+.knowledge-hq h2,
+.knowledge-hq h3 {
+  color: var(--hq-ink);
+  letter-spacing: -0.02em;
+}
+
+.knowledge-hq h1 {
+  font-size: 2.4rem;
+  margin-top: 0.4rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--hq-line);
+}
+
+.knowledge-hq h2 {
+  margin-top: 2.2rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+}
+
+.knowledge-hq p,
+.knowledge-hq li,
+.knowledge-hq table {
+  color: var(--hq-muted);
+}
+
+.knowledge-hq a.internal-link {
+  color: var(--hq-ink);
+  text-decoration-color: var(--hq-line);
+}
+
+.knowledge-hq a.internal-link:hover {
+  color: var(--hq-accent);
+}
+
+.knowledge-hq .callout {
+  border: 1px solid var(--hq-line);
+  border-left: 3px solid var(--hq-accent);
+  border-radius: 2px;
+  background: var(--hq-surface);
+  box-shadow: none;
+}
+
+.knowledge-hq table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+}
+
+.knowledge-hq th,
+.knowledge-hq td {
+  border-bottom: 1px solid var(--hq-line);
+  padding: 0.65rem 0.75rem;
+}
+
+.knowledge-hq th {
+  color: var(--hq-ink);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.knowledge-hq .bases-view {
+  border-top: 1px solid var(--hq-line);
+  margin-top: 0.7rem;
+}
+
+body.theme-dark .knowledge-hq {
+  --hq-bg: #111214;
+  --hq-surface: #17181b;
+  --hq-ink: #f3f4f6;
+  --hq-muted: #a1a6ae;
+  --hq-line: #2a2d31;
+  --hq-accent: #c46a5a;
+}
