@@ -1,6 +1,6 @@
 # Knowledge Curator Protocol
 
-Updated: 2026-08-26
+Updated: 2026-08-27
 
 This document defines how an AI agent should convert learning conversations and external material into a maintainable long-term knowledge base.
 
@@ -97,20 +97,13 @@ status: active
 related: []
 ```
 
-Recommended body:
+Recommended body can be Chinese-first for human reading:
 
 ```markdown
-## CONTEXT
-Why this source entered the system.
-
-## RELEVANT CLAIMS
-Paraphrased claims relevant to the knowledge base.
-
-## EVIDENCE / LIMITS
-What the source supports and what it does not.
-
-## KNOWLEDGE IMPACT
-Candidate concepts to update/create/link.
+## 为什么保存它
+## 关键结论 / 证据
+## 局限
+## 可能影响哪些知识
 ```
 
 ---
@@ -122,38 +115,27 @@ Recommended frontmatter:
 ```yaml
 id: learning-YYYYMMDD-slug
 type: learning
+title: ...
 started_at: YYYY-MM-DD
 status: settled | active
 topics: []
 source_ids: []
 knowledge_ids: []
+open_questions: []
 ```
+
+`open_questions` is a compact dashboard field. Keep the full context in the note body, but mirror durable unresolved questions here so the Obsidian cockpit can surface them automatically.
 
 Recommended body:
 
 ```markdown
-## QUESTIONS
-What the user was trying to understand.
-
-## INITIAL UNDERSTANDING
-Only when useful.
-
-## WHAT CHANGED
-The actual conceptual update.
-
-## MY INSIGHTS
-User hypotheses / personal interpretations.
-
-## CORRECTIONS
-Misunderstandings or earlier claims that were revised.
-
-## OPEN QUESTIONS
-Still unresolved.
-
-## KNOWLEDGE DELTA
-- UPDATE [[...]]
-- CREATE [[...]]
-- LINK [[...]] ↔ [[...]]
+## 我在解决什么问题
+## 原来的理解
+## 这次真正搞懂了什么
+## 我的理解 / 类比
+## 被纠正的地方
+## 还没解决的问题
+## 对知识库产生了什么变化
 ```
 
 Learning files are process memory. They should not replace canonical notes.
@@ -164,30 +146,30 @@ Learning files are process memory. They should not replace canonical notes.
 
 Canonical notes represent the current best reusable understanding.
 
-They should not read like chat transcripts or dated journals.
+They should not read like chat transcripts, database rows or dated journals. Human-facing notes should progressively prefer readable Chinese-first section headings while keeping genuine professional terms in their standard form.
 
 Preferred sections where relevant:
 
-- WHAT
-- WHY
-- WHEN
-- HOW
-- DATA
-- TOOLS
-- OUTPUT
-- PITFALLS
-- MY INSIGHTS
-- OPEN QUESTIONS
-- RELATED
-- SOURCES
+- 一句话理解
+- 它是什么
+- 为什么重要
+- 什么时候会用到
+- 怎么理解 / 怎么做
+- 一个例子
+- 关键数据 / 判断信号
+- 常见误区
+- 我的理解
+- 还没解决的问题
+- 相关知识
+- 来源
 
-### MY INSIGHTS
-Only user-specific hypotheses or mental models. Keep them clearly separated.
+### 我的理解
+Only user-specific hypotheses, analogies or mental models. Keep them clearly separated from established facts.
 
-### OPEN QUESTIONS
+### 还没解决的问题
 Questions worth revisiting. Remove or migrate when resolved.
 
-### SOURCES
+### 来源
 Prefer stable source IDs / links. Do not create a citation list that cannot be traced.
 
 ---
@@ -250,7 +232,7 @@ Why the current structure is failing.
 ...
 ```
 
-Bulk moves/renames should be handled by Codex after the proposal is accepted or clearly safe.
+Bulk moves/renames should be handled by Codex only when local filesystem work is actually necessary.
 
 ---
 
@@ -264,6 +246,8 @@ Settle a learning episode when:
 - the conversation has accumulated enough durable change that waiting creates loss risk.
 
 Do not settle every message.
+
+When the current learning focus materially changes, update `content/00-驾驶舱/01-当前学习.md` so the cockpit reflects what the user is actually studying.
 
 ---
 
