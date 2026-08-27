@@ -14,13 +14,13 @@ cssclasses:
 
 | 区域 | 用途 |
 | --- | --- |
-| [[Knowledge.base|Knowledge]] | 稳定知识：WHAT / WHY / HOW / DATA / TOOLS |
-| [[Learning.base|Learning]] | 学习过程：问题、理解变化、个人判断、未解决问题 |
-| [[Sources.base|Sources & Inbox]] | 网页、PDF、报告、文章、ChatGPT 来源 |
-| [[Playbooks-Cases.base#Playbooks|Playbooks]] | 遇到问题时怎么做 |
-| [[Playbooks-Cases.base#Cases|Cases]] | 真实案例与实验 |
-| [[Tools.base|Tools & Data]] | 数据源与工具 |
-| [[../canvas/00-Knowledge-Landscape.canvas|Knowledge Landscape]] | 白板式知识全景 |
+| [[Knowledge.base\|Knowledge]] | 稳定知识：WHAT / WHY / HOW / DATA / TOOLS |
+| [[Learning.base\|Learning]] | 学习过程：问题、理解变化、个人判断、未解决问题 |
+| [[Sources.base\|Sources & Inbox]] | 网页、PDF、报告、文章、ChatGPT 来源 |
+| [[Playbooks-Cases.base#Playbooks\|Playbooks]] | 遇到问题时怎么做 |
+| [[Playbooks-Cases.base#Cases\|Cases]] | 真实案例与实验 |
+| [[Tools.base\|Tools & Data]] | 数据源与工具 |
+| [[../canvas/00-Knowledge-Landscape.canvas\|Knowledge Landscape]] | 白板式知识全景 |
 
 ---
 
@@ -40,6 +40,8 @@ cssclasses:
 
 > [!question]
 > Open Questions 会随着 Knowledge Curator 的真实学习沉淀逐步结构化；在此之前，优先进入 `learning/` 查看每个 Learning Episode 的 `Open Questions`。
+>
+> [[Learning.base|进入 Learning / Open Questions]]
 
 ## INBOX / NEW SOURCES
 

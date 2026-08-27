@@ -12,10 +12,11 @@
 .DS_Store
 *.pem
 
-# Obsidian: keep stable shared settings, ignore local workspace/session state
-/content/.obsidian/*
-!/content/.obsidian/app.json
-!/content/.obsidian/core-plugins.json
+# Obsidian: track durable configuration, ignore machine-local state
+/content/.obsidian/workspace*.json
+/content/.obsidian/cache/
+/content/.obsidian/.cache/
+/content/.obsidian/session*.json
 
 # debug
 npm-debug.log*

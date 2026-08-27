@@ -1,0 +1,20 @@
+{
+  "autoCommitMessage": "vault: sync {{date}}",
+  "autoCommitOnlyStaged": false,
+  "autoPullInterval": 10,
+  "autoPullOnBoot": true,
+  "autoSaveInterval": 10,
+  "basePath": "",
+  "commitDateFormat": "YYYY-MM-DD HH:mm:ss",
+  "commitMessage": "vault: sync {{date}}",
+  "differentIntervalCommitAndPush": false,
+  "disablePopupsForNoChanges": true,
+  "disablePush": false,
+  "mergeStrategy": "none",
+  "pullBeforePush": true,
+  "setLastSaveToLastCommit": true,
+  "showBranchStatusBar": true,
+  "showErrorNotices": true,
+  "showStatusBar": true,
+  "syncMethod": "merge"
+}
