@@ -1,0 +1,7 @@
+{
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "inbox/assets",
+  "newLinkFormat": "shortest",
+  "propertiesInDocument": "source",
+  "useMarkdownLinks": false
+}

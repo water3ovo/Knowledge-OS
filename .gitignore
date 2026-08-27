@@ -12,6 +12,11 @@
 .DS_Store
 *.pem
 
+# Obsidian: keep stable shared settings, ignore local workspace/session state
+/content/.obsidian/*
+!/content/.obsidian/app.json
+!/content/.obsidian/core-plugins.json
+
 # debug
 npm-debug.log*
 yarn-debug.log*
