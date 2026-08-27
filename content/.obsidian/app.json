@@ -2,6 +2,6 @@
   "alwaysUpdateLinks": true,
   "attachmentFolderPath": "03-资料库/收件箱/assets",
   "newLinkFormat": "shortest",
-  "propertiesInDocument": "visible",
+  "propertiesInDocument": "hidden",
   "useMarkdownLinks": false
 }
