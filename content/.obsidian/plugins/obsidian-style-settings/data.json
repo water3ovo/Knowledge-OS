@@ -1,14 +1,14 @@
 {
   "obsidian-transparent@@preset-mode": "preset-default",
   "obsidian-transparent@@bg-type": "bg-custom",
-  "obsidian-transparent@@bg-custom-url": "url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2400&q=88')",
-  "obsidian-transparent@@background-blur": 8,
-  "obsidian-transparent@@ui-blur": 24,
-  "obsidian-transparent@@settings-blur": 24,
-  "obsidian-transparent@@bg-tint-color": "#AAB3BA",
-  "obsidian-transparent@@bg-tint-opacity": 0.05,
-  "obsidian-transparent@@file-line-width": 960,
-  "obsidian-transparent@@border-opacity": 0.12,
+  "obsidian-transparent@@bg-custom-url": "url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2400&q=92')",
+  "obsidian-transparent@@background-blur": 1,
+  "obsidian-transparent@@ui-blur": 20,
+  "obsidian-transparent@@settings-blur": 22,
+  "obsidian-transparent@@bg-tint-color": "#DDE4E8",
+  "obsidian-transparent@@bg-tint-opacity": 0.03,
+  "obsidian-transparent@@file-line-width": 1040,
+  "obsidian-transparent@@border-opacity": 0.09,
   "obsidian-transparent@@accent-everywhere": false,
-  "obsidian-transparent@@animationspeed": 260
+  "obsidian-transparent@@animationspeed": 220
 }
