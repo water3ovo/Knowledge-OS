@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "status": "active",
+  "sourceOfTruth": "GitHub main / content",
+  "primaryExperience": "Knowledge OS website",
+  "editorExperience": "Obsidian",
+  "lastSyncedAt": "2026-08-28T15:54:00+08:00",
+  "lastEpisode": "knowledge-system-operating-model",
+  "lastDelta": {
+    "summary": "启用 ChatGPT → GitHub → Vercel → Knowledge OS 的知识同步闭环",
+    "operations": ["UPDATE", "LINK"],
+    "changed": [
+      "知识系统运行模式",
+      "Knowledge OS 主阅读端",
+      "Obsidian 编辑与白板端"
+    ]
+  }
+}
