@@ -1,7 +1,8 @@
 {
   "accentColor": "#77828a",
   "enabledCssSnippets": [
-    "knowledge-hq"
+    "knowledge-hq",
+    "kwb-v2-overrides"
   ],
   "cssTheme": "Transparent"
 }
