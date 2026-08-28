@@ -1,0 +1,9 @@
+{
+  "id": "knowledge-workbench-safe",
+  "name": "Knowledge Workbench Safe",
+  "version": "1.0.0",
+  "minAppVersion": "1.10.0",
+  "description": "Stable visual workbench for the Knowledge OS vault.",
+  "author": "Knowledge OS",
+  "isDesktopOnly": false
+}
