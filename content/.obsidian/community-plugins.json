@@ -1,4 +1,8 @@
 [
   "obsidian-git",
-  "dataview"
+  "dataview",
+  "obsidian-style-settings",
+  "note-toolbar",
+  "iconic",
+  "hearth"
 ]
