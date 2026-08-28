@@ -1,44 +1,45 @@
-/* Personal Knowledge Workbench — Mono Research × Glass */
+/* Personal Knowledge Workbench — Frosted Glass / Morandi */
 
 :root {
-  --pk-bg: #f4f4f1;
-  --pk-surface: rgba(255, 255, 255, 0.76);
-  --pk-surface-strong: rgba(255, 255, 255, 0.92);
-  --pk-ink: #111214;
-  --pk-muted: #65686e;
-  --pk-line: rgba(17, 18, 20, 0.10);
-  --pk-soft: rgba(17, 18, 20, 0.045);
-  --pk-accent: #8f3e2f;
-  --pk-accent-soft: rgba(143, 62, 47, 0.10);
-  --pk-radius: 14px;
-  --pk-shadow: 0 16px 45px rgba(20, 22, 25, 0.07);
+  --pk-ink: #27323a;
+  --pk-muted: #6f7b84;
+  --pk-faint: #909aa1;
+  --pk-accent: #77828a;
+  --pk-accent-soft: rgba(119, 130, 138, 0.12);
+  --pk-glass: rgba(247, 249, 250, 0.48);
+  --pk-glass-strong: rgba(250, 251, 252, 0.66);
+  --pk-glass-soft: rgba(243, 246, 248, 0.34);
+  --pk-border: rgba(255, 255, 255, 0.56);
+  --pk-border-dark: rgba(78, 91, 100, 0.10);
+  --pk-shadow: 0 16px 44px rgba(69, 81, 89, 0.10);
+  --pk-radius: 18px;
 }
 
 body.theme-dark {
-  --pk-bg: #0d0e10;
-  --pk-surface: rgba(21, 23, 26, 0.68);
-  --pk-surface-strong: rgba(21, 23, 26, 0.90);
-  --pk-ink: #f4f4f2;
-  --pk-muted: #a4a8af;
-  --pk-line: rgba(255, 255, 255, 0.10);
-  --pk-soft: rgba(255, 255, 255, 0.045);
-  --pk-accent: #c16d5e;
-  --pk-accent-soft: rgba(193, 109, 94, 0.13);
-  --pk-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+  --pk-ink: #e7ebed;
+  --pk-muted: #b3bcc1;
+  --pk-faint: #8f9aa0;
+  --pk-accent: #9eaaaf;
+  --pk-accent-soft: rgba(158, 170, 175, 0.13);
+  --pk-glass: rgba(29, 34, 38, 0.46);
+  --pk-glass-strong: rgba(31, 37, 41, 0.64);
+  --pk-glass-soft: rgba(28, 34, 38, 0.34);
+  --pk-border: rgba(255, 255, 255, 0.12);
+  --pk-border-dark: rgba(255, 255, 255, 0.07);
+  --pk-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
 }
 
-/* ---------- Global reading layer ---------- */
+/* Keep the theme background visible. */
+.workspace-leaf-content[data-type="markdown"] .view-content,
 .markdown-preview-view,
 .markdown-source-view.mod-cm6 .cm-scroller {
-  background:
-    radial-gradient(circle at 82% 5%, var(--pk-accent-soft), transparent 28%),
-    radial-gradient(circle at 15% 96%, var(--pk-soft), transparent 34%),
-    var(--pk-bg);
+  background: transparent !important;
 }
 
+/* Human reading layer */
 .markdown-preview-sizer,
 .markdown-source-view.mod-cm6 .cm-contentContainer {
-  max-width: 920px !important;
+  max-width: 980px !important;
 }
 
 .markdown-preview-view {
@@ -52,285 +53,93 @@ body.theme-dark {
   line-height: 1.82;
 }
 
-.markdown-preview-view strong {
+.markdown-preview-view strong,
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3 {
   color: var(--pk-ink);
 }
 
 .markdown-preview-view h1 {
-  color: var(--pk-ink);
-  font-size: 2.35rem;
+  font-size: 2.2rem;
   line-height: 1.2;
   letter-spacing: -0.035em;
-  font-weight: 760;
-  margin-top: 0.6rem;
-  margin-bottom: 1.35rem;
+  font-weight: 720;
+  margin-bottom: 1.25rem;
 }
 
 .markdown-preview-view h2 {
-  color: var(--pk-ink);
   font-size: 1.34rem;
   letter-spacing: -0.02em;
-  font-weight: 700;
-  margin-top: 2.7rem;
-  padding-top: 0.2rem;
+  margin-top: 2.5rem;
 }
 
 .markdown-preview-view h3 {
-  color: var(--pk-ink);
   font-size: 1.08rem;
-  font-weight: 680;
-  margin-top: 1.8rem;
-}
-
-.markdown-preview-view blockquote {
-  border-left: 3px solid var(--pk-accent);
-  background: var(--pk-surface);
-  border-radius: 0 var(--pk-radius) var(--pk-radius) 0;
-  padding: 0.75rem 1rem;
-  color: var(--pk-muted);
-}
-
-.markdown-preview-view img {
-  border-radius: 12px;
-  box-shadow: var(--pk-shadow);
-}
-
-.markdown-preview-view a.internal-link {
-  color: var(--pk-ink);
-  font-weight: 590;
-  text-decoration-thickness: 1px;
-  text-decoration-color: var(--pk-line);
-  text-underline-offset: 3px;
-}
-
-.markdown-preview-view a.internal-link:hover {
-  color: var(--pk-accent);
-  text-decoration-color: var(--pk-accent);
+  margin-top: 1.7rem;
 }
 
 .markdown-preview-view .metadata-container {
   display: none;
 }
 
-/* ---------- Cockpit ---------- */
-.knowledge-hq .markdown-preview-sizer {
-  max-width: 1120px !important;
-  padding-top: 24px;
+.markdown-preview-view blockquote,
+.markdown-preview-view .callout {
+  background: var(--pk-glass) !important;
+  border: 1px solid var(--pk-border) !important;
+  border-radius: 14px;
+  box-shadow: none;
+  backdrop-filter: blur(14px) saturate(0.82);
+  -webkit-backdrop-filter: blur(14px) saturate(0.82);
 }
 
-.knowledge-hq h1 {
-  display: none;
+.markdown-preview-view blockquote {
+  border-left: 3px solid rgba(119, 130, 138, 0.48) !important;
 }
 
-.knowledge-hq h2 {
-  margin-top: 2.25rem;
-  margin-bottom: 1rem;
-  font-size: 1.12rem;
-  letter-spacing: 0.01em;
-}
-
-.knowledge-hq .callout {
-  background: var(--pk-surface);
-  border: 1px solid var(--pk-line);
-  border-radius: var(--pk-radius);
-  box-shadow: var(--pk-shadow);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-}
-
-.knowledge-hq .callout-title {
+.markdown-preview-view a.internal-link {
   color: var(--pk-ink);
-  font-weight: 700;
+  font-weight: 590;
+  text-decoration-color: rgba(119, 130, 138, 0.30);
+  text-underline-offset: 3px;
 }
 
-.knowledge-hq .callout-content {
-  color: var(--pk-muted);
+.markdown-preview-view a.internal-link:hover {
+  color: #56656d;
+  text-decoration-color: #77828a;
 }
 
-.knowledge-hq .callout[data-callout="hero"] {
-  position: relative;
-  overflow: hidden;
-  min-height: 210px;
-  padding: 1.8rem 2rem;
-  border: 1px solid var(--pk-line);
-  background:
-    radial-gradient(circle at 76% 22%, var(--pk-accent-soft), transparent 24%),
-    linear-gradient(135deg, var(--pk-surface-strong), var(--pk-surface));
+.markdown-preview-view code {
+  background: rgba(119, 130, 138, 0.10);
+  border-radius: 6px;
+  color: var(--pk-ink);
 }
 
-.knowledge-hq .callout[data-callout="hero"]::after {
-  content: "KNOWLEDGE  /  RESEARCH  /  GROWTH";
-  position: absolute;
-  right: 1.5rem;
-  bottom: 1.1rem;
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
-  color: var(--pk-muted);
-  opacity: 0.55;
-}
-
-.knowledge-hq .callout[data-callout="hero"] .callout-title {
-  font-size: 1.7rem;
-  letter-spacing: -0.025em;
-}
-
-.knowledge-hq .callout[data-callout="hero"] .callout-icon {
-  display: none;
-}
-
-.knowledge-hq .callout[data-callout="hero"] p {
-  max-width: 680px;
-  font-size: 1rem;
-}
-
-/* Embedded current-learning panel */
-.knowledge-hq .internal-embed.markdown-embed {
-  margin: 1rem 0 0.2rem;
-  padding: 0;
-  border: 0;
-  background: transparent;
-}
-
-.knowledge-hq .internal-embed .markdown-preview-view {
-  padding: 0;
-  background: transparent;
-}
-
-.knowledge-hq .internal-embed .markdown-preview-sizer {
-  padding: 0 !important;
-  min-height: 0;
-}
-
-.knowledge-hq .internal-embed .embed-title,
-.knowledge-hq .internal-embed h1 {
-  display: none;
-}
-
-.knowledge-hq .internal-embed .callout[data-callout="focus"] {
-  margin: 0;
-  padding: 0.6rem 0.85rem;
-  border-left: 3px solid var(--pk-accent);
-  box-shadow: none;
-  background: linear-gradient(90deg, var(--pk-accent-soft), var(--pk-surface));
-}
-
-.knowledge-hq .internal-embed .callout[data-callout="focus"] .callout-icon {
-  display: none;
-}
-
-.knowledge-hq .callout[data-callout^="hub-"] {
-  display: inline-block;
-  vertical-align: top;
-  width: calc(50% - 0.75rem);
-  min-height: 132px;
-  margin: 0.4rem 0.55rem 0.4rem 0;
-  padding: 0.55rem 0.7rem;
-  box-sizing: border-box;
-  transition: transform 150ms ease, border-color 150ms ease, background 150ms ease;
-}
-
-.knowledge-hq .callout[data-callout^="hub-"]:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--pk-accent) 34%, var(--pk-line));
-  background: var(--pk-surface-strong);
-}
-
-.knowledge-hq .callout[data-callout^="hub-"] .callout-icon {
-  display: none;
-}
-
-.knowledge-hq .callout[data-callout^="hub-"] .callout-title {
-  font-size: 1rem;
-}
-
-.knowledge-hq .callout[data-callout^="domain-"] {
-  display: inline-block;
-  vertical-align: top;
-  width: calc(33.333% - 0.8rem);
-  min-height: 128px;
-  margin: 0.38rem 0.55rem 0.38rem 0;
-  padding: 0.4rem 0.6rem;
-  box-sizing: border-box;
-  box-shadow: none;
-  background: color-mix(in srgb, var(--pk-surface) 88%, transparent);
-  transition: transform 150ms ease, border-color 150ms ease, background 150ms ease;
-}
-
-.knowledge-hq .callout[data-callout^="domain-"]:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--pk-accent) 38%, var(--pk-line));
-  background: var(--pk-surface-strong);
-}
-
-.knowledge-hq .callout[data-callout^="domain-"] .callout-icon {
-  display: none;
-}
-
-.knowledge-hq .callout[data-callout^="domain-"] .callout-title {
-  font-size: 1.02rem;
-}
-
-.knowledge-hq .callout[data-callout^="domain-"] p {
-  font-size: 0.9rem;
-  line-height: 1.65;
-}
-
-.knowledge-hq .dataview.table-view-table,
-.knowledge-hq .bases-view,
-.knowledge-hq table {
+.markdown-preview-view table {
   width: 100%;
-  background: var(--pk-surface);
-  border: 1px solid var(--pk-line);
-  border-radius: 12px;
   overflow: hidden;
-  box-shadow: none;
+  border-radius: 12px;
+  background: var(--pk-glass-soft);
+  backdrop-filter: blur(12px);
 }
 
-.knowledge-hq table th,
-.knowledge-hq table td,
-.knowledge-hq .dataview.table-view-table th,
-.knowledge-hq .dataview.table-view-table td {
-  border: 0;
-  border-bottom: 1px solid var(--pk-line);
-  padding: 0.72rem 0.82rem;
+.markdown-preview-view th,
+.markdown-preview-view td {
+  border-color: var(--pk-border-dark) !important;
 }
 
-.knowledge-hq table th,
-.knowledge-hq .dataview.table-view-table th {
-  color: var(--pk-muted);
-  font-size: 0.75rem;
-  font-weight: 650;
-  text-transform: none;
-  letter-spacing: 0.03em;
+/* Tags: low-saturation neutral pills. */
+a.tag,
+.cm-hashtag {
+  color: #68757c !important;
+  background: rgba(224, 229, 231, 0.46) !important;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-weight: 500;
 }
 
-.knowledge-hq pre:has(code.language-dataview) {
-  display: none;
-}
-
-/* ---------- Knowledge map / MOC ---------- */
-.knowledge-map .markdown-preview-sizer {
-  max-width: 980px !important;
-}
-
-.knowledge-map h2 {
-  padding: 1.05rem 1.2rem 0;
-  margin-top: 1.25rem;
-  background: var(--pk-surface);
-  border: 1px solid var(--pk-line);
-  border-bottom: 0;
-  border-radius: var(--pk-radius) var(--pk-radius) 0 0;
-}
-
-.knowledge-map h2 + p {
-  margin-top: 0;
-  padding: 0 1.2rem 1rem;
-  background: var(--pk-surface);
-  border-left: 1px solid var(--pk-line);
-  border-right: 1px solid var(--pk-line);
-}
-
-/* ---------- File explorer ---------- */
+/* File explorer: quiet and readable. */
 .nav-files-container {
   padding: 0.45rem 0.3rem 1rem;
 }
@@ -339,17 +148,18 @@ body.theme-dark {
 .nav-files-container .nav-file-title {
   padding-top: 5px;
   padding-bottom: 5px;
-  border-radius: 7px;
+  border-radius: 9px;
 }
 
 .nav-files-container .nav-folder-title-content {
-  font-weight: 590;
+  font-weight: 570;
 }
 
 .nav-files-container .nav-file-title.is-active,
 .nav-files-container .nav-folder-title:hover,
 .nav-files-container .nav-file-title:hover {
-  background: var(--pk-soft);
+  background: rgba(244, 247, 248, 0.38) !important;
+  backdrop-filter: blur(10px);
 }
 
 .nav-folder[data-path="meta"],
@@ -357,22 +167,156 @@ body.theme-dark {
   display: none;
 }
 
-@media (max-width: 900px) {
-  .knowledge-hq .callout[data-callout^="domain-"] {
-    width: calc(50% - 0.7rem);
-  }
+/* Icons stay line-based and visually quiet. */
+.svg-icon {
+  stroke-width: 1.65;
 }
 
-@media (max-width: 680px) {
-  .knowledge-hq .callout[data-callout^="hub-"],
-  .knowledge-hq .callout[data-callout^="domain-"] {
-    display: block;
-    width: 100%;
-    margin-right: 0;
+.nav-folder-title .svg-icon,
+.nav-file-title .svg-icon,
+.workspace-ribbon .svg-icon,
+.mod-left-split .svg-icon,
+.mod-right-split .svg-icon {
+  color: #66737a;
+}
+
+/* Hearth — main visual frontend */
+.hearth-view,
+.hearth-root,
+.hearth-home,
+.hearth-dashboard {
+  background: transparent !important;
+}
+
+.hearth-card {
+  background: var(--pk-glass) !important;
+  border: 1px solid var(--pk-border) !important;
+  border-radius: var(--pk-radius) !important;
+  box-shadow: var(--pk-shadow) !important;
+  backdrop-filter: blur(18px) saturate(0.78) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(0.78) !important;
+}
+
+.hearth-card:hover {
+  background: var(--pk-glass-strong) !important;
+  border-color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.hearth-card-header,
+.hearth-card-title {
+  color: var(--pk-ink) !important;
+  font-weight: 650 !important;
+}
+
+.hearth-card-body,
+.hearth-jot-preview,
+.hearth-embed {
+  color: var(--pk-muted) !important;
+}
+
+.hearth-jot-preview h1 {
+  color: var(--pk-ink);
+  font-size: 2.15rem;
+  letter-spacing: -0.04em;
+  margin: 0 0 0.6rem;
+}
+
+.hearth-jot-preview p {
+  color: var(--pk-muted);
+}
+
+.hearth-jot-preview a.internal-link {
+  display: inline-block;
+  margin: 3px 5px 3px 0;
+  padding: 7px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.56);
+  border-radius: 10px;
+  background: rgba(251, 252, 252, 0.34);
+  color: var(--pk-ink);
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+}
+
+.hearth-jot-preview a.internal-link:hover {
+  background: rgba(252, 253, 253, 0.58);
+}
+
+.hearth-dataview table {
+  background: transparent !important;
+  font-size: 0.88rem;
+}
+
+.hearth-dataview th,
+.hearth-dataview td {
+  border-color: rgba(99, 112, 121, 0.09) !important;
+}
+
+.hearth-dataview th {
+  color: var(--pk-faint);
+  font-weight: 600;
+}
+
+.hearth-dataview td {
+  color: var(--pk-muted);
+}
+
+.hearth-search,
+.hearth-search input,
+.hearth-searchbar,
+.hearth-toolbar button,
+.hearth-button {
+  background: rgba(249, 251, 251, 0.42) !important;
+  border-color: rgba(255, 255, 255, 0.52) !important;
+  color: var(--pk-ink) !important;
+  backdrop-filter: blur(14px);
+}
+
+/* Make embedded notes inside Hearth feel like content, not nested apps. */
+.hearth-embed .markdown-preview-view,
+.hearth-embed .markdown-preview-sizer {
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.hearth-embed h1:first-child {
+  display: none;
+}
+
+/* Canvas: glass nodes over the same configurable background. */
+.canvas-wrapper,
+.canvas-container {
+  background: transparent !important;
+}
+
+.canvas-node-container {
+  background: rgba(247, 249, 250, 0.48) !important;
+  border: 1px solid rgba(255, 255, 255, 0.52) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 12px 34px rgba(68, 80, 88, 0.08) !important;
+  backdrop-filter: blur(15px) saturate(0.80);
+}
+
+.canvas-node.is-focused .canvas-node-container,
+.canvas-node.is-selected .canvas-node-container {
+  border-color: rgba(104, 119, 127, 0.42) !important;
+}
+
+/* Old Markdown cockpit remains usable but visually secondary. */
+.knowledge-hq .markdown-preview-sizer {
+  max-width: 1120px !important;
+}
+
+.knowledge-hq .callout {
+  background: var(--pk-glass) !important;
+}
+
+@media (max-width: 720px) {
+  .markdown-preview-sizer,
+  .markdown-source-view.mod-cm6 .cm-contentContainer {
+    max-width: 100% !important;
   }
 
-  .knowledge-hq .callout[data-callout="hero"] {
-    min-height: 180px;
-    padding: 1.2rem;
+  .hearth-card {
+    border-radius: 14px !important;
   }
 }
