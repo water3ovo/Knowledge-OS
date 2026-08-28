@@ -1,0 +1,9 @@
+{
+  "id": "knowledge-workbench",
+  "name": "Knowledge Workbench",
+  "version": "0.1.0",
+  "minAppVersion": "1.10.0",
+  "description": "A glassmorphism visual workbench for the Knowledge OS vault.",
+  "author": "Knowledge OS",
+  "isDesktopOnly": false
+}
