@@ -24,5 +24,8 @@ jobs:
       - name: Knowledge health
         run: npm run knowledge:health
 
+      - name: Check Obsidian Workbench plugin syntax
+        run: node --check content/.obsidian/plugins/knowledge-workbench/main.js
+
       - name: Build
         run: npm run build
