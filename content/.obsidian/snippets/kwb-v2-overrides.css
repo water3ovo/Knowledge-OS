@@ -1,0 +1,72 @@
+/* Knowledge Workbench V2 — final visual overrides */
+body.knowledge-workbench-active .mod-root > .workspace-tabs > .workspace-tab-header-container,
+body.knowledge-workbench-active .mod-root .workspace-tab-header-container {
+  display: none !important;
+}
+
+body.knowledge-workbench-active .workspace-split.mod-root,
+body.knowledge-workbench-active .workspace-tabs.mod-active,
+body.knowledge-workbench-active .workspace-leaf,
+body.knowledge-workbench-active .workspace-leaf-content,
+body.knowledge-workbench-active .view-content,
+body.knowledge-workbench-active .kwb-root {
+  background: transparent !important;
+}
+
+body.knowledge-workbench-active .kwb-shell {
+  background-image:
+    linear-gradient(rgba(241,247,251,.24), rgba(235,242,247,.28)),
+    url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2400&q=94') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+}
+
+body.knowledge-workbench-active .kwb-glass {
+  background: rgba(247,249,251,.55) !important;
+  border: 1px solid rgba(255,255,255,.58) !important;
+  box-shadow: 0 16px 44px rgba(43,55,66,.085) !important;
+  backdrop-filter: blur(21px) saturate(108%) !important;
+  -webkit-backdrop-filter: blur(21px) saturate(108%) !important;
+}
+
+body.knowledge-workbench-active .kwb-sidebar {
+  background: rgba(246,248,250,.58) !important;
+}
+
+body.knowledge-workbench-active .kwb-stat,
+body.knowledge-workbench-active .kwb-panel,
+body.knowledge-workbench-active .kwb-table-card,
+body.knowledge-workbench-active .kwb-article {
+  box-shadow: 0 12px 34px rgba(47,60,72,.07) !important;
+}
+
+body.knowledge-workbench-active button,
+body.knowledge-workbench-active a {
+  --interactive-accent: #6f7f8a;
+}
+
+body.knowledge-workbench-active .kwb-primary-btn {
+  background: rgba(72,82,91,.76) !important;
+}
+
+body.knowledge-workbench-active .kwb-chip.is-active,
+body.knowledge-workbench-active .kwb-nav-item.is-active {
+  background: rgba(255,255,255,.66) !important;
+}
+
+/* Native canvas: use same crisp background and glass hierarchy. */
+.canvas-wrapper {
+  background-image:
+    linear-gradient(rgba(241,247,251,.18), rgba(235,242,247,.20)),
+    url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2400&q=94') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+.canvas-node-container {
+  background: rgba(247,249,251,.58) !important;
+  backdrop-filter: blur(18px) saturate(108%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(108%) !important;
+  border: 1px solid rgba(255,255,255,.62) !important;
+  box-shadow: 0 14px 38px rgba(45,58,69,.085) !important;
+}
