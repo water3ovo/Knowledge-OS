@@ -3,7 +3,10 @@ import "./globals.css";
 import "./mobile.css";
 import "./library.css";
 import "./mono-theme.css";
+import "./daylight-v2.css";
+import "./daylight-index.css";
 import NavBridge from "./nav-bridge";
+import { WebsitePreferencesProvider } from "./editor-preferences";
 
 export const metadata: Metadata = {
   title: "Knowledge OS",
@@ -13,7 +16,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="zh-CN">
-      <body><NavBridge />{children}</body>
+      <body>
+        <WebsitePreferencesProvider>
+          <NavBridge />
+          {children}
+        </WebsitePreferencesProvider>
+      </body>
     </html>
   );
 }
