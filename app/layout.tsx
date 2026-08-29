@@ -4,6 +4,7 @@ import "./mobile.css";
 import "./library.css";
 import "./mono-theme.css";
 import "./daylight-v2.css";
+import "./daylight-index.css";
 import NavBridge from "./nav-bridge";
 import { WebsitePreferencesProvider } from "./editor-preferences";
 
