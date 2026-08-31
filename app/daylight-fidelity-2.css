@@ -186,6 +186,31 @@
   background: rgba(255,255,255,.18) !important;
 }
 
+/* Use the user's original artwork instead of re-drawing the eye as an SVG. */
+.hero-eye {
+  display: none !important;
+}
+
+.ko-hero::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: -1%;
+  width: 48%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url("/assets/visual/ChatGPT%20Image%202026%E5%B9%B48%E6%9C%8831%E6%97%A5%2016_04_24.png");
+  background-repeat: no-repeat;
+  background-size: 210% auto;
+  background-position: 86% 28%;
+  opacity: .48;
+  mix-blend-mode: multiply;
+  filter: contrast(.92) saturate(.78);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.42) 14%, #000 35%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.42) 14%, #000 35%, #000 100%);
+}
+
 @media (min-width: 1181px) {
   .ko-dashboard-grid {
     grid-template-columns: minmax(0, .84fr) minmax(0, 1.03fr) minmax(350px, 1.18fr) !important;
@@ -195,4 +220,9 @@
 @media (max-width: 760px) {
   .ko-delta-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   .ko-domain-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ko-hero::after {
+    width: 58%;
+    right: -18%;
+    opacity: .22;
+  }
 }
