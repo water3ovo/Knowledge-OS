@@ -1,0 +1,198 @@
+/* Second fidelity pass: exact dashboard density / proportions from approved mock. */
+
+.ko-panel {
+  background-color: rgb(255 253 249 / calc(var(--ko-module-opacity) * .82));
+}
+
+.ko-delta-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+.ko-list-panel,
+.ko-links-panel,
+.ko-map-panel {
+  padding: 18px 20px !important;
+}
+
+.ko-list-panel > header,
+.ko-links-panel > header,
+.ko-map-panel > header {
+  min-height: 28px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ko-list-panel > header h2,
+.ko-links-panel > header h2,
+.ko-map-panel > header h2 {
+  margin: 0;
+  color: #3c3732;
+  font-size: 15px !important;
+  font-weight: 570;
+}
+
+.ko-list-panel > header a,
+.ko-map-panel > header a,
+.ko-list-panel > header span,
+.ko-links-panel > header small {
+  color: #91877e;
+  font-size: 9.5px;
+  text-decoration: none;
+}
+
+.ko-rows {
+  margin-top: 5px;
+}
+
+.ko-rows > button,
+.ko-question-rows > div {
+  width: 100%;
+  min-height: 40px !important;
+  display: grid !important;
+  grid-template-columns: 22px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  padding: 0 !important;
+  border: 0 !important;
+  border-top: 1px solid rgba(73,62,52,.047) !important;
+  background: transparent !important;
+  color: #5c554e;
+  text-align: left;
+}
+
+.ko-rows > button:first-child,
+.ko-question-rows > div:first-child {
+  border-top: 0 !important;
+}
+
+.ko-rows > button b,
+.ko-question-rows > div b {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #504941;
+  font-size: 11.5px;
+  font-weight: 510;
+}
+
+.ko-rows > button time,
+.ko-question-rows > div time {
+  color: #958b82;
+  font-size: 9.5px;
+  white-space: nowrap;
+}
+
+.ko-rows > button > span,
+.ko-question-rows > div > span {
+  color: #8b8178;
+  font-size: 11px;
+}
+
+.ko-link-list {
+  margin-top: 6px;
+}
+
+.ko-link-list > a {
+  min-height: 57px !important;
+  display: grid !important;
+  grid-template-columns: 29px minmax(0,1fr) 18px;
+  align-items: center;
+  gap: 9px;
+  border-top: 1px solid rgba(73,62,52,.047) !important;
+  color: #514a43;
+  text-decoration: none;
+}
+
+.ko-link-list > a:first-child {
+  border-top: 0 !important;
+}
+
+.ko-link-list > a b {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.ko-link-list > a small {
+  display: block;
+  margin-top: 3px;
+  color: #968c83;
+  font-size: 9.5px;
+}
+
+.ko-link-list > a em {
+  color: #978d85;
+  font-style: normal;
+}
+
+.ko-site-mark {
+  width: 23px;
+  height: 23px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: rgba(255,255,255,.50);
+  box-shadow: inset 0 0 0 1px rgba(76,63,52,.045);
+  color: #70665d;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.ko-domain-strip {
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0 !important;
+  margin-top: 9px;
+  border: 1px solid rgba(73,62,52,.045);
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.ko-domain-strip > a {
+  min-height: 76px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border-right: 1px solid rgba(73,62,52,.045);
+  background: rgba(255,255,255,.10) !important;
+  color: #5a524a;
+  text-decoration: none;
+}
+
+.ko-domain-strip > a:last-child {
+  border-right: 0;
+}
+
+.ko-domain-strip > a span {
+  font-size: 10.5px;
+}
+
+.ko-domain-strip > a b {
+  color: #7e746b;
+  font: 400 11px var(--ko-mono);
+}
+
+.ko-primary-action {
+  background: #9a806b !important;
+  box-shadow: none !important;
+}
+
+.ko-secondary-action {
+  background: rgba(255,255,255,.18) !important;
+}
+
+@media (min-width: 1181px) {
+  .ko-dashboard-grid {
+    grid-template-columns: minmax(0, .84fr) minmax(0, 1.03fr) minmax(350px, 1.18fr) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .ko-delta-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .ko-domain-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
