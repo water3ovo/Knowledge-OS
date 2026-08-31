@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import type { KnowledgeItem } from "@/lib/content";
+import type { KnowledgeSourceMeta } from "@/lib/knowledge-source";
 import { useWebsitePreferences } from "../../editor-preferences";
 
 type Draft = {
@@ -14,6 +15,12 @@ type Draft = {
   pitfalls: string[];
   tags: string[];
 };
+
+type SubmitStatus =
+  | { kind: "idle"; message: "" }
+  | { kind: "working"; message: string }
+  | { kind: "success"; message: string; url?: string }
+  | { kind: "error" | "conflict"; message: string };
 
 function toDraft(item: KnowledgeItem): Draft {
   return {
@@ -44,12 +51,13 @@ function toMarkdown(item: KnowledgeItem, draft: Draft) {
   ].filter(Boolean).join("\n");
 }
 
-export default function KnowledgeDetailClient({ item }: { item: KnowledgeItem }) {
+export default function KnowledgeDetailClient({ item, sourceMeta }: { item: KnowledgeItem; sourceMeta: KnowledgeSourceMeta | null }) {
   const { preferences } = useWebsitePreferences();
   const storageKey = `knowledge-os:document-draft:${item.id}`;
   const [draft, setDraft] = useState<Draft>(() => toDraft(item));
   const [editing, setEditing] = useState(false);
   const [hasLocalDraft, setHasLocalDraft] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>({ kind: "idle", message: "" });
 
   useEffect(() => {
     try {
@@ -73,18 +81,23 @@ export default function KnowledgeDetailClient({ item }: { item: KnowledgeItem })
     tags: draft.tags,
   }), [item, draft]);
 
-  const saveDraft = () => {
+  const persistDraft = () => {
     try {
       window.localStorage.setItem(storageKey, JSON.stringify(draft));
       setHasLocalDraft(true);
-      setEditing(false);
     } catch {}
+  };
+
+  const saveDraft = () => {
+    persistDraft();
+    setEditing(false);
   };
 
   const restoreSource = () => {
     setDraft(toDraft(item));
     try { window.localStorage.removeItem(storageKey); } catch {}
     setHasLocalDraft(false);
+    setSubmitStatus({ kind: "idle", message: "" });
     setEditing(false);
   };
 
@@ -102,9 +115,66 @@ export default function KnowledgeDetailClient({ item }: { item: KnowledgeItem })
     setDraft((current) => ({ ...current, [key]: value.split("\n").map((line) => line.trim()).filter(Boolean) }));
   };
 
+  const submitToKnowledgeBase = async () => {
+    if (!sourceMeta || submitStatus.kind === "working") return;
+
+    let secret = "";
+    try { secret = window.sessionStorage.getItem("knowledge-os:editor-secret") ?? ""; } catch {}
+    if (!secret) {
+      secret = window.prompt("请输入 Knowledge OS 知识库提交口令。口令仅保存在当前浏览器会话中。")?.trim() ?? "";
+      if (!secret) return;
+      try { window.sessionStorage.setItem("knowledge-os:editor-secret", secret); } catch {}
+    }
+
+    persistDraft();
+    setSubmitStatus({ kind: "working", message: "正在检查 GitHub 原文并提交…" });
+
+    try {
+      const response = await fetch("/api/knowledge/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-editor-secret": secret,
+        },
+        body: JSON.stringify({
+          id: item.id,
+          sourcePath: sourceMeta.sourcePath,
+          sourceHash: sourceMeta.sourceHash,
+          draft,
+        }),
+      });
+      const result = await response.json() as { message?: string; commitUrl?: string; error?: string };
+
+      if (response.status === 401) {
+        try { window.sessionStorage.removeItem("knowledge-os:editor-secret"); } catch {}
+      }
+
+      if (!response.ok) {
+        setSubmitStatus({
+          kind: response.status === 409 ? "conflict" : "error",
+          message: result.message ?? "提交失败，请稍后重试。",
+        });
+        return;
+      }
+
+      setSubmitStatus({
+        kind: "success",
+        message: result.message ?? "已提交到知识库。",
+        url: result.commitUrl,
+      });
+      setEditing(false);
+    } catch {
+      setSubmitStatus({ kind: "error", message: "网络请求失败，未修改 GitHub。" });
+    }
+  };
+
   if (editing) {
     return (
       <div className="ko-document-editor">
+        <div className="ko-editor-heading">
+          <div><p className="section-kicker">DOCUMENT EDITOR</p><h2>编辑知识文档</h2></div>
+          {sourceMeta ? <span className="ko-source-ready">GitHub 写回已就绪</span> : <span className="ko-source-local">仅本地草稿</span>}
+        </div>
         <label><span>标题</span><input className="title-input" value={draft.title} onChange={(e) => setDraft((current) => ({ ...current, title: e.target.value }))} /></label>
         <label><span>英文标题</span><input value={draft.titleEn} onChange={(e) => setDraft((current) => ({ ...current, titleEn: e.target.value }))} /></label>
         <label><span>WHAT / 核心内容</span><textarea rows={7} value={draft.what} onChange={(e) => setDraft((current) => ({ ...current, what: e.target.value }))} /></label>
@@ -113,11 +183,26 @@ export default function KnowledgeDetailClient({ item }: { item: KnowledgeItem })
         <label><span>HOW / 怎么做（每行一步）</span><textarea rows={7} value={draft.how.join("\n")} onChange={(e) => updateArray("how", e.target.value)} /></label>
         <label><span>PITFALLS / 常见误区（每行一条）</span><textarea rows={5} value={draft.pitfalls.join("\n")} onChange={(e) => updateArray("pitfalls", e.target.value)} /></label>
         <label><span>标签（每行一个）</span><textarea rows={4} value={draft.tags.join("\n")} onChange={(e) => updateArray("tags", e.target.value)} /></label>
+        {submitStatus.kind !== "idle" && (
+          <div className={`ko-submit-status ${submitStatus.kind}`}>
+            <span>{submitStatus.message}</span>
+            {submitStatus.kind === "success" && submitStatus.url && <a href={submitStatus.url} target="_blank" rel="noreferrer">查看 Commit ↗</a>}
+          </div>
+        )}
         <div className="ko-document-actions">
           <button className="ko-subtle-button" onClick={() => setEditing(false)}>取消</button>
           <button className="ko-subtle-button" onClick={exportMarkdown}>导出 Markdown</button>
-          <button className="ko-primary-button" onClick={saveDraft}>保存本地草稿</button>
+          <button className="ko-subtle-button" onClick={saveDraft}>保存本地草稿</button>
+          <button
+            className="ko-primary-button ko-submit-button"
+            disabled={!sourceMeta || submitStatus.kind === "working"}
+            onClick={submitToKnowledgeBase}
+            title={sourceMeta ? "检查原文版本后安全提交到 GitHub main" : "这条知识目前来自 seed，还没有独立 Markdown 源文件"}
+          >
+            {submitStatus.kind === "working" ? "提交中…" : "提交到知识库"}
+          </button>
         </div>
+        <p className="ko-editor-safety-note">提交前会校验 GitHub 原文版本；如果 ChatGPT 或其他设备已经更新过该文档，会停止提交而不是覆盖新内容。</p>
       </div>
     );
   }
@@ -131,6 +216,13 @@ export default function KnowledgeDetailClient({ item }: { item: KnowledgeItem })
             {hasLocalDraft && <button className="ko-subtle-button" onClick={restoreSource}>恢复 GitHub 原文</button>}
             <button className="ko-doc-edit-button" onClick={() => setEditing(true)}>编辑文档</button>
           </div>
+        </div>
+      )}
+
+      {submitStatus.kind !== "idle" && submitStatus.kind !== "working" && (
+        <div className={`ko-submit-status ko-submit-status-view ${submitStatus.kind}`}>
+          <span>{submitStatus.message}</span>
+          {submitStatus.kind === "success" && submitStatus.url && <a href={submitStatus.url} target="_blank" rel="noreferrer">查看 Commit ↗</a>}
         </div>
       )}
 
